@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
-</head>
-
-<body>
-    <h1>Admin Dashboard</h1>
-</body>
-
-</html>
+<div class="wrapper">
+    @include('admin.layout.sidebar')
+    @include('admin.layout.header')
+    <div class="page-wrapper">
+        @yield('admin')
+    </div>
+    <div class="overlay toggle-icon"></div>
+    <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+</div>
+@include('admin.layout.footer')
