@@ -10,7 +10,8 @@
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
                                     <img src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}"
-                                        alt="Admin" class="rounded-circle p-1 bg-primary" width="110" style="width:110px; height: 110px;
+                                        alt="Admin" class="rounded-circle p-1 bg-primary" width="110"
+                                        style="width:110px; height: 110px;
                                         object-fit: cover;">
                                     <div class="mt-3">
                                         <h4>{{ $adminData->name }}</h4>
@@ -60,6 +61,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
+                            <p class="card-header py-3" style="font-size: 18px;background:none;">User Information</p>
                             <div class="card-body">
                                 <form method="POST" action={{ route('admin.profile.store') }}
                                     enctype="multipart/form-data">
@@ -78,7 +80,8 @@
                                             <h6 class="mb-0">Full Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="name" class="form-control" value="{{ $adminData->name }}" />
+                                            <input type="text" name="name" class="form-control"
+                                                value="{{ $adminData->name }}" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -86,7 +89,8 @@
                                             <h6 class="mb-0">Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="email" name="email" class="form-control" value="{{ $adminData->email }}" />
+                                            <input type="email" name="email" class="form-control"
+                                                value="{{ $adminData->email }}" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -94,7 +98,8 @@
                                             <h6 class="mb-0">Phone</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="phone" class="form-control" value="{{ $adminData->phone }}" />
+                                            <input type="text" name="phone" class="form-control"
+                                                value="{{ $adminData->phone }}" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">

@@ -7,6 +7,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
+                            <p class="card-header py-3" style="font-size: 18px;background:none;">Change password</p>
                             <div class="card-body">
                                 <form method="post" action="{{ route('admin.update.password') }}">
                                     @csrf
