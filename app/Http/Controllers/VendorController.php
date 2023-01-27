@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class VendorController extends Controller
 {
@@ -61,5 +62,27 @@ class VendorController extends Controller
     public function VendorChangePassword()
     {
         return view('vendor.profile.change_password');
+    }
+    public function VendorUpdatePassword(Request $request)
+    {
+        // Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        // Match The Old Password
+        $hashedPassword = Auth::user()->password;
+        if (!Hash::check($request->old_password, $hashedPassword)) {
+            return back()->with("error", "Old Password Doesn't Match!!");
+        }
+
+        // Update The new password
+        $id = Auth::user()->id;
+        User::whereId($id)->update([
+            'password' => Hash::make($request->new_password)
+
+        ]);
+        return back()->with("status", "Password Changed Successfully");
     }
 }
