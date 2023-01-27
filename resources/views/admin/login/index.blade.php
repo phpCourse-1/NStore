@@ -6,14 +6,21 @@
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                     <div class="col mx-auto">
-                        <div class="mb-4 text-center">
-                            <img src="{{ asset('adminAssets/images/logo-img.png') }}" width="180" alt="" />
+                        <div class="mb-4 text-center"
+                            style="display: flex;flex-direction:row;align-items:center;justify-content:center;">
+                            <div class="logo">
+                                <img src="{{ asset('adminAssets/images/logo-icon.png') }}" alt="logo icon"
+                                    width="40">
+                            </div>
+                            <div>
+                                <h3 class="logo-text">NStore</h3>
+                            </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="border p-4 rounded">
                                     <div class="text-center">
-                                        <h3 class="">Admin Sign in</h3>
+                                        <h4 class="">Admin Sign in</h4>
                                     </div>
                                     <div class="form-body">
                                         <form class="row g-3" method="POST" action="{{ route('login') }}">
