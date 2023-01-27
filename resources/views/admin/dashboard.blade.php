@@ -1,6 +1,6 @@
+@include('admin.layout.header')
 <div class="wrapper">
     @include('admin.layout.sidebar')
-    @include('admin.layout.header')
     <div class="page-wrapper">
         @yield('admin')
     </div>
