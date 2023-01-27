@@ -4,7 +4,7 @@
             <img src="{{ asset('adminAssets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h5 class="logo-text">NStore</h5>
+            <h5 class="logo-text">NStore Admin</h5>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
         </div>
