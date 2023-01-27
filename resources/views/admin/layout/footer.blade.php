@@ -11,13 +11,6 @@
 <script src="{{ asset('adminAssets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
-<script src="{{ asset('adminAssets/plugins/jquery-knob/excanvas.js') }}"></script>
-<script src="{{ asset('adminAssets/plugins/jquery-knob/jquery.knob.js') }}"></script>
-<script>
-    $(function() {
-        $(".knob").knob();
-    });
-</script>
 <script src="{{ asset('adminAssets/js/index.js') }}"></script>
 <script src="{{ asset('adminAssets/js/app.js') }}"></script>
 </body>
