@@ -1,6 +1,7 @@
-@extends('admin.dashboard')
-@section('admin')
-    <script src="{{ asset('adminAssets/js/jquery.min.js') }}"></script>
+@extends('vendor.dashboard')
+@section('vendor')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <div class="page-content">
         <div class="container">
             <div class="main-body">
@@ -9,17 +10,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}"
-                                        alt="Admin" class="rounded-circle p-1 bg-primary" width="110"
-                                        style="width:110px; height: 110px;
-                                        object-fit: cover;">
+                                    <img src="{{ !empty($vendorData->photo) ? url('upload/vendor_images/' . $vendorData->photo) : url('upload/no_image.jpg') }}"
+                                        alt="Vendor" class="rounded-circle p-1 bg-primary"
+                                        style="width:100px; height: 100px;object-fit:cover;">
                                     <div class="mt-3">
-                                        <h4>{{ $adminData->name }}</h4>
-                                        <p class="text-secondary mb-1">{{ $adminData->email }}</p>
-                                        <p class="text-muted font-size-sm">{{ $adminData->address }}</p>
+                                        <h4>{{ $vendorData->name }}</h4>
+                                        <p class="text-secondary mb-1">{{ $vendorData->email }}</p>
+                                        <p class="text-muted font-size-sm">{{ $vendorData->address }}</p>
+
                                     </div>
                                 </div>
-                                <hr style="margin: 0 0;" />
+                                <hr style="margin: 0.2px 0" />
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24"
@@ -34,17 +35,7 @@
                                             </svg>Website</h6>
                                         <span class="text-secondary">https://codervent.com</span>
                                     </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="feather feather-github me-2 icon-inline">
-                                                <path
-                                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                                </path>
-                                            </svg>Github</h6>
-                                        <span class="text-secondary">codervent</span>
-                                    </li>
+
                                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -61,54 +52,90 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <p class="card-header py-3" style="font-size: 18px;background:none;">Admin Information</p>
+                            <p class="card-header py-3" style="font-size: 18px;background:none;">Vendor Information</p>
                             <div class="card-body">
-                                <form method="POST" action={{ route('admin.profile.store') }}
+                                <form method="post" action="{{ route('vendor.profile.store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
+
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">User Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" class="form-control" value="{{ $adminData->username }}"
+                                            <input type="text" class="form-control" value="{{ $vendorData->username }}"
                                                 disabled />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Full Name</h6>
+                                            <h6 class="mb-0"> Shop Name</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" name="name" class="form-control"
-                                                value="{{ $adminData->name }}" />
+                                                value="{{ $vendorData->name }}" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
+                                            <h6 class="mb-0">Vendor Email</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="email" name="email" class="form-control"
-                                                value="{{ $adminData->email }}" />
+                                                value="{{ $vendorData->email }}" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
+                                            <h6 class="mb-0">Vendor Phone </h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" name="phone" class="form-control"
-                                                value="{{ $adminData->phone }}" />
+                                                value="{{ $vendorData->phone }}" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Vendor Address</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="address" class="form-control"
+                                                value="{{ $vendorData->address }}" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Vendor Join Date </h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <select name="vendor_join" class="form-select mb-3"
+                                                aria-label="Default select example">
+                                                <option selected="">Open this select menu</option>
+                                                <option value="2022"
+                                                    {{ $vendorData->vendor_join == 2022 ? 'selected' : '' }}>2022</option>
+                                                <option value="2023"
+                                                    {{ $vendorData->vendor_join == 2023 ? 'selected' : '' }}>2023</option>
+                                                <option value="2024"
+                                                    {{ $vendorData->vendor_join == 2024 ? 'selected' : '' }}>2024</option>
+                                                <option value="2025"
+                                                    {{ $vendorData->vendor_join == 2025 ? 'selected' : '' }}>2025</option>
+                                                <option value="2026"
+                                                    {{ $vendorData->vendor_join == 2026 ? 'selected' : '' }}>2026</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Address</h6>
+                                            <h6 class="mb-0">Vendor Info</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="address" class="form-control"
-                                                value="{{ $adminData->address }}" />
+                                            <textarea name="vendor_short_info" class="form-control" id="inputAddress2" placeholder="Vendor Info "
+                                                rows="3">
+                                                {{ $vendorData->vendor_short_info }}
+                                            </textarea>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -121,12 +148,12 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0"></h6>
+                                            <h6 class="mb-0"> </h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <img id="showImage"
-                                                src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}"
-                                                alt="Admin" style="width:100px; height:100px">
+                                                src="{{ !empty($vendorData->photo) ? url('upload/vendor_images/' . $vendorData->photo) : url('upload/no_image.jpg') }}"
+                                                alt="Vendor" style="width:100px; height: 100px;object-fit:cover;">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -135,10 +162,9 @@
                                             <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
                                         </div>
                                     </div>
-                                </form>
                             </div>
+                            </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -147,7 +173,7 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#image').change(function(e) {
-                let reader = new FileReader();
+                var reader = new FileReader();
                 reader.onload = function(e) {
                     $('#showImage').attr('src', e.target.result);
                 }
