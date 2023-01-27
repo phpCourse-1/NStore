@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function AdminLogin()
     {
-        return view('admin.login');
+        return view('admin.login.index');
     }
 
     public function AdminDestroy(Request $request)
