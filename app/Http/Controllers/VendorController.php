@@ -74,7 +74,7 @@ class VendorController extends Controller
         // Match The Old Password
         $hashedPassword = Auth::user()->password;
         if (!Hash::check($request->old_password, $hashedPassword)) {
-            return back()->with("error", "Old Password Doesn't Match!!");
+            return back()->with("error", "Old Password is incorrect. Try again!");
         }
 
         // Update The new password
@@ -83,6 +83,6 @@ class VendorController extends Controller
             'password' => Hash::make($request->new_password)
 
         ]);
-        return back()->with("status", "Password Changed Successfully");
+        return back()->with("status", "Password Changed Successfully!");
     }
 }
