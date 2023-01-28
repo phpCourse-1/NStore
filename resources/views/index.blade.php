@@ -56,7 +56,10 @@
                                     aria-labelledby="dashboard-tab">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h3 class="mb-0">Hello {{Auth::user()->name}}!</h3>
+                                            <img id="showImage"
+                                                src="{{ !empty($userData->photo) ? url('upload/user_images/' . $userData->photo) : url('upload/no_image.jpg') }}"
+                                                alt="User" class="rounded-circle p-1 user_avatar">
+                                            <h3 class="mb-0">Hello {{ Auth::user()->name }}!</h3>
                                         </div>
                                         <div class="card-body">
                                             <p>
@@ -192,43 +195,44 @@
                                             <h5>Account Details</h5>
                                         </div>
                                         <div class="card-body">
-                                            <p>Already have an account? <a href="page-login.html">Log in
-                                                    instead!</a></p>
-                                            <form method="post" name="enq">
-                                                <div class="row">
+
+                                            <form method="post" action="{{ route('user.profile.store') }}"
+                                                enctype="multipart/form-data">
+                                                @csrf <div class="row">
                                                     <div class="form-group col-md-6">
-                                                        <label>First Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="name"
-                                                            type="text" />
+                                                        <label>User Name</label>
+                                                        <input class="form-control" name="username" type="text"
+                                                            value="{{ $userData->username }}" />
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label>Last Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="phone" />
+                                                        <label>Full Name</label>
+                                                        <input class="form-control" name="name"
+                                                            value="{{ $userData->name }}" />
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>Display Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="dname"
-                                                            type="text" />
+                                                        <label>Email</label>
+                                                        <input class="form-control" name="email" type="text"
+                                                            value="{{ $userData->email }}" />
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>Email Address <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="email"
-                                                            type="email" />
+                                                        <label>Phone</label>
+                                                        <input class="form-control" name="phone" type="text"
+                                                            value="{{ $userData->phone }}" />
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>Current Password <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="password"
-                                                            type="password" />
+                                                        <label>Address</label>
+                                                        <input class="form-control" name="address" type="text"
+                                                            value="{{ $userData->address }}" />
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>New Password <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="npassword"
-                                                            type="password" />
+                                                        <label>User Photo</label>
+                                                        <input class="form-control" name="photo" type="file"
+                                                            id="image" />
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>Confirm Password <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="cpassword"
-                                                            type="password" />
+                                                        <img id="showImage"
+                                                            src="{{ !empty($userData->photo) ? url('upload/user_images/' . $userData->photo) : url('upload/no_image.jpg') }}"
+                                                            alt="User" class="p-1 user_img">
                                                     </div>
                                                     <div class="col-md-12">
                                                         <button type="submit"
@@ -247,4 +251,15 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection

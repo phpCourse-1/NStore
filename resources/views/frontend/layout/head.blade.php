@@ -14,6 +14,7 @@
     <link rel="icon" href="{{ asset('frontendAssets/images/theme/favicon.svg') }}" />
     <link rel="stylesheet" href="{{ asset('frontendAssets/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontendAssets/css/main.css?v=5.3') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body>
