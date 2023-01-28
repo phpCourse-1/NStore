@@ -13,12 +13,10 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
-
     public function AdminLogin()
     {
         return view('admin.login.index');
     }
-
     public function AdminDestroy(Request $request)
     {
         Auth::guard('web')->logout();
@@ -29,14 +27,12 @@ class AdminController extends Controller
 
         return redirect('/admin/login');
     }
-
     public function AdminProfile()
     {
         $id = Auth::user()->id;
         $adminData = User::find($id);
         return view('admin.profile.index', compact('adminData'));
     }
-
     public function AdminProfileStore(Request $request)
     {
         $id = Auth::user()->id;
@@ -61,7 +57,6 @@ class AdminController extends Controller
         );
         return redirect()->back()->with($notification);
     }
-
     public function AdminChangePassword()
     {
         return view('admin.profile.change_password');

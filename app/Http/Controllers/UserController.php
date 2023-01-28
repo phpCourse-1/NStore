@@ -14,7 +14,6 @@ class UserController extends Controller
         $userData = User::find($id);
         return view('index', compact('userData'));
     }
-
     public function UserProfileStore(Request $request)
     {
         $id = Auth::user()->id;
@@ -42,5 +41,15 @@ class UserController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+    public function UserLogout(Request $request)
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

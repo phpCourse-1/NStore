@@ -44,7 +44,7 @@
                                             details</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('logout') }}"><i
+                                        <a class="nav-link" href="{{ route('user.logout') }}"><i
                                                 class="fi-rs-sign-out mr-10"></i>Logout</a>
                                     </li>
                                 </ul>
