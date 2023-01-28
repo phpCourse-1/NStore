@@ -1,13 +1,13 @@
 @extends('admin.dashboard')
 @section('admin')
-    <div class="page-content m-3">
+    <div class="page-content m3">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
             <div style="display: flex;align-items: center;justify-content: center;">
                 <p class="h4 text-gray-800 m-0">All Brands</p>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">Add Brand</button>
+                    <a href="{{ route('add.brand') }}" class="btn btn-primary">Add Brand</a>
                 </div>
             </div>
         </div>
@@ -30,11 +30,10 @@
                                     <td> {{ $key + 1 }} </td>
                                     <td>{{ $item->brand_name }}</td>
                                     <td> <img src="{{ asset($item->brand_image) }}" style="width: 70px; height:40px;"> </td>
-
                                     <td>
-                                        <a href="" class="btn btn-info">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
-
+                                        <a href="{{ route('edit.brand', $item->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('delete.brand', $item->id) }}" class="btn btn-danger"
+                                            id="delete">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

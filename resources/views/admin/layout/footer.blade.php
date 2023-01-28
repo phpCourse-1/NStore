@@ -12,6 +12,7 @@
 <script src="{{ asset('adminAssets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('adminAssets/js/index.js') }}"></script>
+<script src="{{ asset('adminAssets/js/validate.min.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 <script>
@@ -43,6 +44,9 @@
         }
     @endif
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{ asset('adminAssets/js/code.js') }}"></script>
+
 </body>
 
 </html>
