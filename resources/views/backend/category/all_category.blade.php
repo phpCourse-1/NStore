@@ -1,13 +1,13 @@
 @extends('admin.dashboard')
 @section('admin')
-    <div class="page-content m3">
+    <div class="page-content m-3">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
             <div style="display: flex;align-items: center;justify-content: center;">
-                <p class="h4 text-gray-800 m-0">All Brands</p>
+                <p class="h4 text-gray-800 m-0">All Categories</p>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('add.brand') }}" class="btn btn-primary">Add Brand</a>
+                    <a href="{{ route('add.category') }}" class="btn btn-primary">Add Category</a>
                 </div>
             </div>
         </div>
@@ -19,17 +19,18 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Brand Name</th>
-                                <th>Brand Image</th>
+                                <th>Category Name</th>
+                                <th>Category Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($brands as $key => $item)
+                            @foreach ($categories as $key => $item)
                                 <tr>
                                     <td> {{ $key + 1 }} </td>
-                                    <td>{{ $item->brand_name }}</td>
-                                    <td> <img src="{{ asset($item->brand_image) }}" style="width: 70px; height:40px;"> </td>
+                                    <td>{{ $item->category_name }}</td>
+                                    <td> <img src="{{ asset($item->category_image) }}" style="width: 70px; height:50px;object-fit:cover;">
+                                    </td>
                                     <td>
                                         <a href="{{ route('edit.brand', $item->id) }}" class="btn btn-info">Edit</a>
                                         <a href="{{ route('delete.brand', $item->id) }}" class="btn btn-danger"
