@@ -9,6 +9,7 @@
     <link href="{{ asset('adminAssets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('adminAssets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('adminAssets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('adminAssets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}"  rel="stylesheet" />
     <link href="{{ asset('adminAssets/css/pace.min.css') }}" rel="stylesheet" />
     <script src="{{ asset('adminAssets/js/pace.min.js') }}"></script>
     <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -406,8 +407,7 @@
                     <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}"
-                        class="user-img"
-                            alt="user avatar">
+                            class="user-img" alt="user avatar">
                         <div class="user-info ps-3">
                             <p class="user-name mb-0">{{ Auth::user()->name }}</p>
                             <p class="designattion mb-0">{{ Auth::user()->username }}</p>
@@ -417,7 +417,7 @@
                         <li><a class="dropdown-item" href="{{ route('admin.profile') }}"><i
                                     class="bx bx-user"></i><span>Profile</span></a>
                         </li>
-                        <li><a class="dropdown-item" href="{{route('admin.change.password')}}"><i
+                        <li><a class="dropdown-item" href="{{ route('admin.change.password') }}"><i
                                     class="bx bx-cog"></i><span>Change Password</span></a>
                         </li>
                         <li><a class="dropdown-item" href="javascript:;"><i

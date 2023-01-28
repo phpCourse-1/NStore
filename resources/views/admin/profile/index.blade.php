@@ -126,7 +126,7 @@
                                         <div class="col-sm-9 text-secondary">
                                             <img id="showImage"
                                                 src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('upload/no_image.jpg') }}"
-                                                alt="Admin" style="width:100px; height:100px">
+                                                alt="Admin" style="width:100px;height:100px;object-fit: cover;">
                                         </div>
                                     </div>
                                     <div class="row">
