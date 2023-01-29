@@ -9,7 +9,7 @@
     <link href="{{ asset('adminAssets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('adminAssets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('adminAssets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('adminAssets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}"  rel="stylesheet" />
+    <link href="{{ asset('adminAssets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('adminAssets/css/pace.min.css') }}" rel="stylesheet" />
     <script src="{{ asset('adminAssets/js/pace.min.js') }}"></script>
     <link href="{{ asset('adminAssets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ asset('adminAssets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminAssets/css/header-colors.css') }}" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <link href="{{ asset('adminAssets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
     <title>Admin Dashboard</title>
 </head>
 

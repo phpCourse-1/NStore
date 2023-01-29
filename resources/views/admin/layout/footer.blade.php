@@ -15,14 +15,15 @@
 <script src="{{ asset('adminAssets/js/validate.min.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('adminAssets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('adminAssets/js/app.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="{{ asset('adminAssets/plugins/input-tags/js/tagsinput.js') }}"></script>
+<script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js'
+    referrerpolicy="origin"></script>
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
-</script>
-<script src="{{ asset('adminAssets/js/app.js') }}"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script>
     @if (Session::has('message'))
         var type = "{{ Session::get('alert-type', 'info') }}"
         switch (type) {
@@ -43,6 +44,9 @@
                 break;
         }
     @endif
+    tinymce.init({
+        selector: '#mytextarea'
+    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{{ asset('adminAssets/js/code.js') }}"></script>
