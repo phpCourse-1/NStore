@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SubCategoryController;
 
 Route::get('/', function () {
@@ -76,5 +77,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/active/vendor/details/{id}', 'ActiveVendorDetails')->name('active.vendor.details');
         Route::post('/active/vendor', 'ActiveVendorApprove')->name('active.vendor.approve');
         Route::post('/inactive/vendor', 'InActiveVendorApprove')->name('inactive.vendor.approve');
+    });
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('/all/product', 'AllProduct')->name('all.product');
     });
 });
