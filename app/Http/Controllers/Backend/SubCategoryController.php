@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
     {
         $categories = Category::orderBy('category_name', 'ASC')->get();
         return view('backend.subcategory.add_subcategory', compact('categories'));
-    } 
+    }
     public function StoreSubCategory(Request $request)
     {
 
@@ -70,4 +70,10 @@ class SubCategoryController extends Controller
 
         return redirect()->back()->with($notification);
     }
+    public function GetSubCategory($category_id)
+    {
+        $subcat = SubCategory::where('category_id', $category_id)->orderBy('subcategory_name', 'ASC')->get();
+        return json_encode($subcat);
+    }
+
 }
