@@ -45,7 +45,6 @@ Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->na
 Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    // Brand All Route 
     Route::controller(BrandController::class)->group(function () {
         Route::get('/all/brand', 'AllBrand')->name('all.brand');
         Route::get('/add/brand', 'AddBrand')->name('add.brand');
@@ -54,7 +53,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/brand', 'UpdateBrand')->name('update.brand');
         Route::get('/delete/brand/{id}', 'DeleteBrand')->name('delete.brand');
     });
-    // Category All Route 
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/all/category', 'AllCategory')->name('all.category');
         Route::get('/add/category', 'AddCategory')->name('add.category');
@@ -63,7 +61,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/category', 'UpdateCategory')->name('update.category');
         Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
     });
-    // SubCategory All Route 
     Route::controller(SubCategoryController::class)->group(function () {
         Route::get('/all/subcategory', 'AllSubCategory')->name('all.subcategory');
         Route::get('/add/subcategory', 'AddSubCategory')->name('add.subcategory');
@@ -72,9 +69,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/subcategory', 'UpdateSubCategory')->name('update.subcategory');
         Route::get('/delete/subcategory/{id}', 'DeleteSubCategory')->name('delete.subcategory');
     });
-});
-
-// Vendor Active and Inactive All Route 
-Route::controller(AdminController::class)->group(function () {
-    Route::get('/inactive/vendor', 'InactiveVendor')->name('inactive.vendor');
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/inactive/vendor', 'InactiveVendor')->name('inactive.vendor');
+    });
 });
