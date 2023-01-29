@@ -17,7 +17,7 @@
 <script src="{{ asset('adminAssets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#myTable').DataTable();
     });
 </script>
 <script src="{{ asset('adminAssets/js/app.js') }}"></script>

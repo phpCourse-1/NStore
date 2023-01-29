@@ -3,7 +3,7 @@
     <div class="page-content m-3">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
             <div style="display: flex;align-items: center;justify-content: center;">
-                <p class="h4 text-gray-800 m-0">All Inactive Vendor</p>
+                <p class="h4 text-gray-800 m-0">All Active Vendor</p>
             </div>
         </div>
         <hr />
@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($inActiveVendor as $key => $item)
+                            @foreach ($activeVendor as $key => $item)
                                 <tr>
                                     <td> {{ $key + 1 }} </td>
                                     <td> {{ $item->name }}</td>
