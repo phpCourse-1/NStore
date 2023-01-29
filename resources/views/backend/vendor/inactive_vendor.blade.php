@@ -30,10 +30,12 @@
                                     <td> {{ $item->username }}</td>
                                     <td> {{ $item->vendor_join }}</td>
                                     <td> {{ $item->email }} </td>
-                                    <td> <span class="btn btn-secondary">{{ $item->status }}</span> </td>
-
+                                    <td> <span class="btn"
+                                            style="cursor: default;color: #fff;background-color: #6c757d;">{{ $item->status }}</span>
+                                    </td>
                                     <td>
-                                        <a href="{{ route('inactive.vendor.details', $item->id) }}" class="btn btn-info">Vendor
+                                        <a href="{{ route('inactive.vendor.details', $item->id) }}"
+                                            class="btn btn-info">Vendor
                                             Details</a>
                                     </td>
                                 </tr>
