@@ -123,10 +123,11 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
 Route::middleware(RedirectIfAuthenticated::class)->group(function () {
     Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
     Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
-    Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 });
 
+Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
 # Frontend Product Details All Route
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor.details');
