@@ -6,7 +6,7 @@
         <div class="container">
             <div class="header-wrap">
                 <div class="logo logo-width-1">
-                    <a href="{{ route('dashboard') }}"><img src="{{ asset('frontendAssets/images/theme/logo.svg') }}"
+                    <a href="{{ route('main') }}"><img src="{{ asset('frontendAssets/images/theme/logo.svg') }}"
                             alt="logo" /></a>
                 </div>
                 @php
