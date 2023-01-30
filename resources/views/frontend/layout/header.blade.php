@@ -9,21 +9,17 @@
                     <a href="{{ route('dashboard') }}"><img src="{{ asset('frontendAssets/images/theme/logo.svg') }}"
                             alt="logo" /></a>
                 </div>
+                @php
+                    $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
+                @endphp
                 <div class="header-right">
                     <div class="search-style-2">
                         <form action="#">
                             <select class="select-active">
                                 <option>All Categories</option>
-                                <option>Milks and Dairies</option>
-                                <option>Wines & Alcohol</option>
-                                <option>Clothing & Beauty</option>
-                                <option>Pet Foods & Toy</option>
-                                <option>Fast food</option>
-                                <option>Baking material</option>
-                                <option>Vegetables</option>
-                                <option>Fresh Seafood</option>
-                                <option>Noodles & Rice</option>
-                                <option>Ice cream</option>
+                                @foreach ($categories as $category)
+                                    <option>{{ $category->category_name }}</option>
+                                @endforeach
                             </select>
                             <input type="text" placeholder="Search for items..." />
                         </form>
@@ -202,7 +198,7 @@
                                 </li>
                                 @php
                                     $categories = App\Models\Category::orderBy('category_name', 'ASC')
-                                        ->limit(4)
+                                        ->limit(5)
                                         ->get();
                                 @endphp
                                 @foreach ($categories as $category)
@@ -232,10 +228,6 @@
 
                         </nav>
                     </div>
-                </div>
-                <div class="hotline d-none d-lg-flex">
-                    <img src="{{ asset('frontendAssets/images/theme/icons/icon-headphone.svg') }}" alt="hotline" />
-                    <p>1900 - 888<span>24/7 Support Center</span></p>
                 </div>
                 <div class="header-action-icon-2 d-block d-lg-none">
                     <div class="burger-icon burger-icon-white">

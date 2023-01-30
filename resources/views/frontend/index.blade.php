@@ -1,4 +1,4 @@
-@extends('frontend.dashboard')
+@extends('frontend.master')
 @section('main')
     @include('frontend.home.slider')
     @include('frontend.home.features_categories')
