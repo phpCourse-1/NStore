@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\Backend\BrandController;
@@ -82,6 +83,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/all/slider', 'AllSlider')->name('all.slider');
         Route::get('/add/slider', 'AddSlider')->name('add.slider');
         Route::post('/store/slider', 'StoreSlider')->name('store.slider');
+        Route::get('/edit/slider/{id}', 'EditSlider')->name('edit.slider');
+        Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
+        Route::get('/delete/slider/{id}', 'DeleteSlider')->name('delete.slider');
+    });
+    Route::controller(BannerController::class)->group(function () {
+        Route::get('/all/banner', 'AllBanner')->name('all.banner');
+        Route::get('/add/banner', 'AddBanner')->name('add.banner');
+        Route::post('/store/banner', 'StoreBanner')->name('store.banner');
         Route::get('/edit/slider/{id}', 'EditSlider')->name('edit.slider');
         Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
         Route::get('/delete/slider/{id}', 'DeleteSlider')->name('delete.slider');

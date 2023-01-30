@@ -22,8 +22,8 @@ class SliderController extends Controller
 
         $image = $request->file('image');
         $filename = date('YmdHi') . $image->getClientOriginalName();
-        $save_url = 'upload/slider/' . $filename;
-        $image->move(public_path('upload/slider'), $filename);
+        $save_url = 'upload/sliders/' . $filename;
+        $image->move(public_path('upload/sliders'), $filename);
 
         Slider::insert([
             'title' => $request->title,
@@ -52,8 +52,8 @@ class SliderController extends Controller
 
             $image = $request->file('image');
             $filename = date('YmdHi') . $image->getClientOriginalName();
-            $save_url = 'upload/slider/' . $filename;
-            $image->move(public_path('upload/slider'), $save_url);
+            $save_url = 'upload/sliders/' . $filename;
+            $image->move(public_path('upload/sliders'), $save_url);
 
             if (file_exists($old_img)) {
                 unlink($old_img);
