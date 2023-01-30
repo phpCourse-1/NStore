@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -40,10 +41,13 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
     Route::post('/vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
 });
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
-Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
+Route::middleware(RedirectIfAuthenticated::class)->group(function () {
+    Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+    Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
+    Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
+});
+
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
-Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(BrandController::class)->group(function () {
@@ -90,5 +94,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/product/multiimage/delete/{id}', 'MultiImageDelete')->name('product.multiimage.delete');
         Route::get('/product/inactive/{id}', 'ProductInactive')->name('product.inactive');
         Route::get('/product/active/{id}', 'ProductActive')->name('product.active');
+        Route::get('/delete/product/{id}', 'ProductDelete')->name('delete.product');
     });
 });
