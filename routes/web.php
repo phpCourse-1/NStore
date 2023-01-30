@@ -7,6 +7,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -76,6 +77,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/product/inactive/{id}', 'ProductInactive')->name('product.inactive');
         Route::get('/product/active/{id}', 'ProductActive')->name('product.active');
         Route::get('/delete/product/{id}', 'ProductDelete')->name('delete.product');
+    });
+    Route::controller(SliderController::class)->group(function () {
+        Route::get('/all/slider', 'AllSlider')->name('all.slider');
+        Route::get('/add/slider', 'AddSlider')->name('add.slider');
+        Route::post('/store/slider', 'StoreSlider')->name('store.slider');
     });
 });
 
