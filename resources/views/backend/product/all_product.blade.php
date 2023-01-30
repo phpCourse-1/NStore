@@ -3,7 +3,8 @@
     <div class="page-content m-3">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
             <div style="display: flex;align-items: center;justify-content: center;">
-                <p class="h4 text-gray-800 m-0">All Products</p>
+                <p class="h4 text-gray-800 m-0">All Products <span class="badge rounded-pill bg-danger">
+                        {{ count($products) }} </span> </p>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
@@ -33,7 +34,7 @@
                                 <tr>
                                     <td> {{ $key + 1 }} </td>
                                     <td> <img src="{{ asset($item->product_thambnail) }}"
-                                            style="width: 70px; height:40px;object-fit:cover;">
+                                            style="width: 50px; height:40px;object-fit:cover;">
                                     </td>
                                     <td>{{ $item->product_name }}</td>
                                     <td>{{ $item->selling_price }}</td>
@@ -57,7 +58,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info"
+                                        <a href="{{ route('edit.product', $item->id) }}" class="btn btn-info"
                                             title="Edit Data"><i class="fa fa-pencil"></i></a>
                                         <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger"
                                             id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
