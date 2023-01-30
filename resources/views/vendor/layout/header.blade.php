@@ -16,8 +16,13 @@
     <link href="{{ asset('adminAssets/css/icons.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('adminAssets/css/dark-theme.css') }}" />
     <link rel="stylesheet" href="{{ asset('adminAssets/css/semi-dark.css') }}" />
+    <link href="{{ asset('adminAssets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('adminAssets/css/header-colors.css') }}" />
+    <link href="{{ asset('adminAssets/plugins/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Vendor Dashboard</title>
 </head>
 
@@ -406,8 +411,7 @@
                     <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret"
                         href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ !empty($vendorData->photo) ? url('upload/vendor_images/' . $vendorData->photo) : url('upload/no_image.jpg') }}"
-                        class="user-img"
-                            alt="user avatar">
+                            class="user-img" alt="user avatar" style="object-fit: cover;">
                         <div class="user-info ps-3">
                             <p class="user-name mb-0">{{ Auth::user()->name }}</p>
                             <p class="designattion mb-0">{{ Auth::user()->username }}</p>
@@ -417,7 +421,7 @@
                         <li><a class="dropdown-item" href="{{ route('vendor.profile') }}"><i
                                     class="bx bx-user"></i><span>Profile</span></a>
                         </li>
-                        <li><a class="dropdown-item" href="{{route('vendor.change.password')}}"><i
+                        <li><a class="dropdown-item" href="{{ route('vendor.change.password') }}"><i
                                     class="bx bx-cog"></i><span>Change Password</span></a>
                         </li>
                         <li><a class="dropdown-item" href="javascript:;"><i
