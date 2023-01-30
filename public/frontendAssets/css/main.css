@@ -12658,7 +12658,8 @@ footer .hotline img {
     }
 
     .banner-img.style-2 {
-        height: 483px;
+        height: 415px;
+        object-fit: cover;
     }
 
     .slider-nav-thumbnails button.slick-arrow.slick-prev {
