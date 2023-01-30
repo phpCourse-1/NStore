@@ -33,9 +33,9 @@
                                             style="width: 70px; height:50px;object-fit:cover;">
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i></a>
                                         <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger"
-                                            id="delete">Delete</a>
+                                            id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

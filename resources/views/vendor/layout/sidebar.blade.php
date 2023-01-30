@@ -30,7 +30,7 @@
                     <div class="menu-title">Product Manage</div>
                 </a>
                 <ul>
-                    <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>All Product</a>
+                    <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>All Products</a>
                     </li>
                     <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
                     </li>
