@@ -6,7 +6,7 @@
             <div class="card-body p-4">
                 <h5 class="card-title">Add New Product</h5>
                 <hr />
-                <form id="myForm" method="post" action="{{ route('store.category') }}" enctype="multipart/form-data">
+                <form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-body mt-4">
                         <div class="row">
@@ -178,7 +178,7 @@
                     .Blob) {
                     let data = $(this)[0].files;
                     $.each(data, function(index, file) {
-                        if (/(\.|\/)(gif|jpe?g|png)$/i.test(file
+                        if (/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file
                                 .type)) {
                             let fRead = new FileReader();
                             fRead.onload = (function(file) {

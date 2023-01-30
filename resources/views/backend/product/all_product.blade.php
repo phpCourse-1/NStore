@@ -7,7 +7,7 @@
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('add.subcategory') }}" class="btn btn-primary">Add Product</a>
+                    <a href="{{ route('add.product') }}" class="btn btn-primary">Add Product</a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                             @foreach ($products as $key => $item)
                                 <tr>
                                     <td> {{ $key + 1 }} </td>
-                                    <td> <img src="{{ asset($item->product_thambnail) }}" style="width: 70px; height:40px;">
+                                    <td> <img src="{{ asset($item->product_thambnail) }}" style="width: 70px; height:40px;object-fit:cover;">
                                     </td>
                                     <td>{{ $item->product_name }}</td>
                                     <td>{{ $item->selling_price }}</td>
