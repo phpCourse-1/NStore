@@ -30,10 +30,11 @@
                                     <td> {{ $key + 1 }} </td>
                                     <td>{{ $item->category_name }}</td>
                                     <td> <img src="{{ asset($item->category_image) }}"
-                                            style="width: 70px; height:50px;object-fit:cover;">
+                                            style="width: 50px; height:50px;object-fit:cover;">
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info"
+                                            title="Edit Data"><i class="fa fa-pencil"></i></a>
                                         <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger"
                                             id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
                                     </td>
