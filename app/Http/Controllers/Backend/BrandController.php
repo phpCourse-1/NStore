@@ -55,13 +55,6 @@ class BrandController extends Controller
             $save_url = 'upload/brand_images/' . $filename;
             $image->move(public_path('upload/brand_images'), $save_url);
 
-            Brand::insert([
-                'brand_name' => $request->brand_name,
-                'brand_slug' => strtolower(str_replace(' ', '-', $request->brand_name)),
-                'brand_image' => $save_url,
-            ]);
-
-
             if (file_exists($old_img)) {
                 unlink($old_img);
             }
