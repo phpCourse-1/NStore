@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\VendorProductController;
+use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 
 Route::get('/', function () {
@@ -128,3 +129,6 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function () {
 });
 
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
+
+# Frontend Product Details All Route
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);

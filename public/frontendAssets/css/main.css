@@ -5532,6 +5532,9 @@ table .product-thumbnail img {
 .detail-gallery .product-image-slider img {
     opacity: 1;
     border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .detail-gallery .product-image-slider.slider-nav-thumbnails {

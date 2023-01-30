@@ -27,14 +27,14 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                 <div class="row product-grid-4">
-
                     @foreach ($products as $product)
                         <div class="col-lg-1-5 col-md-4 col-12 col-sm-6">
                             <div class="product-cart-wrap mb-30 wow animate__animated animate__fadeIn"
                                 data-wow-delay=".1s">
                                 <div class="product-img-action-wrap">
                                     <div class="product-img product-img-zoom">
-                                        <a href="shop-product-right.html">
+                                        <a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
                                             <img class="default-img" src="{{ asset($product->product_thambnail) }}"
                                                 alt="" />
                                         </a>
@@ -47,11 +47,13 @@
                                         <a aria-label="Quick view" class="action-btn" data-bs-toggle="modal"
                                             data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
                                     </div>
+
                                     @php
                                         $amount = $product->selling_price - $product->discount_price;
                                         $discount = ($amount / $product->selling_price) * 100;
                                     @endphp
                                     <div class="product-badges product-badges-position product-badges-mrg">
+
                                         @if ($product->discount_price == null)
                                             <span class="new">New</span>
                                         @else
@@ -63,7 +65,9 @@
                                     <div class="product-category">
                                         <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                                     </div>
-                                    <h2><a href="shop-product-right.html"> {{ $product->product_name }} </a></h2>
+                                    <h2><a
+                                            href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}">
+                                            {{ $product->product_name }} </a></h2>
                                     <div class="product-rate-cover">
                                         <div class="product-rate d-inline-block">
                                             <div class="product-rating" style="width: 90%"></div>
@@ -84,6 +88,7 @@
                                         @if ($product->discount_price == null)
                                             <div class="product-price">
                                                 <span>${{ $product->selling_price }}</span>
+
                                             </div>
                                         @else
                                             <div class="product-price">
@@ -119,6 +124,7 @@
                                             <a href="shop-product-right.html">
                                                 <img class="default-img" src="{{ asset($product->product_thambnail) }}"
                                                     alt="" />
+
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -134,6 +140,7 @@
                                             $discount = ($amount / $product->selling_price) * 100;
                                         @endphp
                                         <div class="product-badges product-badges-position product-badges-mrg">
+
                                             @if ($product->discount_price == null)
                                                 <span class="new">New</span>
                                             @else
