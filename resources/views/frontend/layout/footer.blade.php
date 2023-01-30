@@ -32,8 +32,7 @@
                             <img src="{{ asset('frontendAssets/images/theme/icons/icon-1.svg') }}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Best prices & offers</h3>
-                            <p>Orders $50 or more</p>
+                            <h3 class="icon-box-title">Best prices</h3>
                         </div>
                     </div>
                 </div>
@@ -45,7 +44,6 @@
                         </div>
                         <div class="banner-text">
                             <h3 class="icon-box-title">Free delivery</h3>
-                            <p>24/7 amazing services</p>
                         </div>
                     </div>
                 </div>
@@ -56,8 +54,7 @@
                             <img src="{{ asset('frontendAssets/images/theme/icons/icon-3.svg') }}" alt="" />
                         </div>
                         <div class="banner-text">
-                            <h3 class="icon-box-title">Great daily deal</h3>
-                            <p>When you sign up</p>
+                            <h3 class="icon-box-title">Great deals</h3>
                         </div>
                     </div>
                 </div>
@@ -69,7 +66,6 @@
                         </div>
                         <div class="banner-text">
                             <h3 class="icon-box-title">Wide assortment</h3>
-                            <p>Mega Discounts</p>
                         </div>
                     </div>
                 </div>
@@ -81,7 +77,6 @@
                         </div>
                         <div class="banner-text">
                             <h3 class="icon-box-title">Easy returns</h3>
-                            <p>Within 30 days</p>
                         </div>
                     </div>
                 </div>
@@ -93,7 +88,6 @@
                         </div>
                         <div class="banner-text">
                             <h3 class="icon-box-title">Safe delivery</h3>
-                            <p>Within 30 days</p>
                         </div>
                     </div>
                 </div>

@@ -5,10 +5,22 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\MultiImg;
 use App\Models\Product;
-use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    public function Index()
+    {
+        $hot_deals = Product::where('hot_deals', 1)->where('discount_price', '!=', NULL)->orderBy('id', 'DESC')->limit(3)->get();
+
+        $special_offer = Product::where('special_offer', 1)->orderBy('id', 'DESC')->limit(3)->get();
+
+        $new = Product::where('status', 1)->orderBy('id', 'DESC')->limit(3)->get();
+
+        $special_deals = Product::where('special_deals', 1)->orderBy('id', 'DESC')->limit(3)->get();
+
+        return view('frontend.index', compact('hot_deals', 'special_offer', 'new', 'special_deals'));
+    }
+
     public function ProductDetails($id, $slug)
     {
         $product = Product::findOrFail($id);
