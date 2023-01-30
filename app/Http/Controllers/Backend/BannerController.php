@@ -83,7 +83,7 @@ class BannerController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->route('all.Banner')->with($notification);
+            return redirect()->route('all.banner')->with($notification);
         }
     }
     public function DeleteBanner($id)
