@@ -34,9 +34,9 @@
                                             style="width: 100px; height:50px;object-fit:cover;">
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.category', $item->id) }}" class="btn btn-info"
+                                        <a href="{{ route('edit.slider', $item->id) }}" class="btn btn-info"
                                             title="Edit Data"><i class="fa fa-pencil"></i></a>
-                                        <a href="{{ route('delete.category', $item->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('delete.slider', $item->id) }}" class="btn btn-danger"
                                             id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
