@@ -135,30 +135,34 @@ Route::middleware(RedirectIfAuthenticated::class)->group(function () {
     Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
 });
 
+Route::controller(CartController::class)->group(function () {
+    Route::get('/mycart', 'MyCart')->name('mycart');
+    Route::get('/get-cart-product', 'GetCartProduct');
+    Route::get('/cart-remove/{rowId}', 'CartRemove');
+    Route::get('/cart-decrement/{rowId}', 'CartDecrement');
+    Route::get('/cart-increment/{rowId}', 'CartIncrement');
+});
+
 Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
 # Frontend Routes
-Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
-Route::get('/vendor/details/{id}', [IndexController::class, 'VendorDetails'])->name('vendor.details');
-Route::get('/vendor/all', [IndexController::class, 'VendorAll'])->name('vendor.all');
-Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatWiseProduct']);
-Route::get('/product/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseProduct']);
-Route::get('/product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']);
-Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
-Route::get('/product/mini/cart', [CartController::class, 'AddMiniCart']);
-Route::get('/minicart/product/remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
-Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails']);
+Route::controller(IndexController::class)->group(function () {
+    Route::get('/product/details/{id}/{slug}', 'ProductDetails');
+    Route::get('/vendor/details/{id}', 'VendorDetails')->name('vendor.details');
+    Route::get('/vendor/all', 'VendorAll')->name('vendor.all');
+    Route::get('/product/category/{id}/{slug}', 'CatWiseProduct');
+    Route::get('/product/subcategory/{id}/{slug}', 'SubCatWiseProduct');
+    Route::get('/product/view/modal/{id}', 'ProductViewAjax');
+});
 
-Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::controller(CartController::class)->group(function () {
-        Route::get('/mycart', 'MyCart')->name('mycart');
-        Route::get('/get-cart-product', 'GetCartProduct');
-        Route::get('/cart-remove/{rowId}', 'CartRemove');
-        Route::get('/cart-decrement/{rowId}', 'CartDecrement');
-        Route::get('/cart-increment/{rowId}', 'CartIncrement');
-        Route::post('/coupon-apply', 'CouponApply');
-        Route::get('/coupon-calculation', 'CouponCalculation');
-        Route::get('/coupon-remove', 'CouponRemove');
-    });
+Route::controller(CartController::class)->group(function () {
+    Route::post('/cart/data/store/{id}', 'AddToCart');
+    Route::get('/product/mini/cart', 'AddMiniCart');
+    Route::get('/minicart/product/remove/{rowId}', 'RemoveMiniCart');
+    Route::post('/dcart/data/store/{id}', 'AddToCartDetails');
+    Route::post('/coupon-apply', 'CouponApply');
+    Route::get('/coupon-calculation', 'CouponCalculation');
+    Route::get('/coupon-remove', 'CouponRemove');
+    Route::get('/checkout', 'CheckoutCreate')->name('checkout');
 });
