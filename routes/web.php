@@ -144,5 +144,6 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::controller(CartController::class)->group(function () {
         Route::get('/mycart', 'MyCart')->name('mycart');
+        Route::get('/get-cart-product', 'GetCartProduct');
     });
 });
