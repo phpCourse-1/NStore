@@ -335,6 +335,7 @@
             },
             url: "/cart/data/store/" + id,
             success: function(data) {
+                miniCart();
                 $('#closeModal').click();
                 const Toast = Swal.mixin({
                     toast: true,
@@ -358,6 +359,41 @@
             }
         })
     }
+
+    function miniCart() {
+        $.ajax({
+            type: 'GET',
+            url: '/product/mini/cart',
+            dataType: 'json',
+            success: function(response) {
+                $('span[id="cartSubTotal"]').text(response.cartTotal);
+                $('#cartQty').text(response.cartQty);
+                let miniCart = ""
+                $.each(response.carts, function(key, value) {
+                    miniCart += `
+        <ul>
+            <li>
+                <div class="shopping-cart-img">
+                    <a href="shop-product-right.html"><img alt="Nest" src="/${value.options.image} " /></a>
+                </div>
+                <div class="shopping-cart-title">
+                    <h4><a href="shop-product-right.html"> ${value.name} </a></h4>
+                    <h4><span>${value.qty} × </span>${value.price}</h4>
+                </div>
+                <div class="shopping-cart-delete">
+                    <a href="#"><i class="fi-rs-cross-small"></i></a>
+                </div>
+            </li>
+        </ul>
+        <hr>
+        <br>
+               `
+                });
+                $('#miniCart').html(miniCart);
+            }
+        })
+    }
+    miniCart();
 </script>
 </body>
 
