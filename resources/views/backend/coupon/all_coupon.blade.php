@@ -1,20 +1,13 @@
-@extends('admin.admin_dashboard')
+@extends('admin.dashboard')
 @section('admin')
-    <div class="page-content">
+    <div class="page-content m-3">
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">All Coupon </div>
-            <div class="ps-3">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Coupon</li>
-                    </ol>
-                </nav>
+            <div style="display: flex;align-items: center;justify-content: center;">
+                <p class="h4 text-gray-800 m-0">All Coupons</p>
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('add.subcategory') }}" class="btn btn-primary">Add Coupon</a>
+                    <a href="{{ route('add.coupon') }}" class="btn btn-primary">Add Coupon</a>
                 </div>
             </div>
         </div>
@@ -49,9 +42,10 @@
 
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.subcategory', $item->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('delete.subcategory', $item->id) }}" class="btn btn-danger"
-                                            id="delete">Delete</a>
+                                        <a href="{{ route('edit.banner', $item->id) }}" class="btn btn-info"
+                                            title="Edit Data"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{ route('delete.banner', $item->id) }}" class="btn btn-danger"
+                                            id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
