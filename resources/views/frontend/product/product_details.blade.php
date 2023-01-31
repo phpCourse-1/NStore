@@ -39,7 +39,7 @@
                                 @else
                                     <span class="stock-status out-stock">Stock Out </span>
                                 @endif
-                                <h2 class="title-detail"> {{ $product->product_name }} </h2>
+                                <h2 class="title-detail" id="dpname"> {{ $product->product_name }} </h2>
                                 <div class="product-detail-rating">
                                     <div class="product-rate-cover text-end">
                                         <div class="product-rate d-inline-block">
@@ -76,7 +76,7 @@
                                 @else
                                     <div class="attr-detail attr-size mb-30">
                                         <strong class="mr-10" style="width:50px;">Size : </strong>
-                                        <select class="form-control unicase-form-control" id="size">
+                                        <select class="form-control unicase-form-control" id="dsize">
                                             <option selected="" disabled="">--Choose Size--</option>
                                             @foreach ($product_size as $size)
                                                 <option value="{{ $size }}">{{ ucwords($size) }}</option>
@@ -88,7 +88,7 @@
                                 @else
                                     <div class="attr-detail attr-size mb-30">
                                         <strong class="mr-10" style="width:50px;">Color : </strong>
-                                        <select class="form-control unicase-form-control" id="size">
+                                        <select class="form-control unicase-form-control" id="dcolor">
                                             <option selected="" disabled="">--Choose Color--</option>
                                             @foreach ($product_color as $color)
                                                 <option value="{{ $color }}">{{ ucwords($color) }}</option>
@@ -99,12 +99,15 @@
                                 <div class="detail-extralink mb-50">
                                     <div class="detail-qty border radius">
                                         <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                        <input type="text" name="quantity" class="qty-val" value="1" min="1">
+                                        <input type="text" name="quantity" id="dqty" class="qty-val" value="1"
+                                            min="1">
                                         <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
                                     </div>
                                     <div class="product-extra-link2">
-                                        <button type="submit" class="button button-add-to-cart"><i
-                                                class="fi-rs-shopping-cart"></i>Add to cart</button>
+                                        <input type="hidden" id="dproduct_id" value="{{ $product->id }}">
+                                        <button type="submit" class="button button-add-to-cart"
+                                            onclick="addToCartDetails()"><i class="fi-rs-shopping-cart"></i>Add to
+                                            cart</button>
                                         <a aria-label="Add To Wishlist" class="action-btn hover-up"
                                             href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                         <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i
@@ -131,7 +134,8 @@
                                         </li>
                                     </ul>
                                     <ul class="float-start">
-                                        <li class="mb-5">Product Code: <a href="#">{{ $product->product_code }}</a>
+                                        <li class="mb-5">Product Code: <a
+                                                href="#">{{ $product->product_code }}</a>
                                         </li>
 
                                         <li class="mb-5">Tags: <a href="#" rel="tag">
@@ -480,73 +484,73 @@
                             </div>
                         </div>
                     </div>
-                    @if(count($relatedProduct) > 0)
-                    <div class="row mt-60">
-                        <div class="col-12">
-                            <h2 class="section-title style-1 mb-30">Related products</h2>
-                        </div>
-                        <div class="col-12">
-                            <div class="row related-products">
-                                @foreach ($relatedProduct as $product)
-                                    <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                        <div class="product-cart-wrap hover-up">
-                                            <div class="product-img-action-wrap">
-                                                <div class="product-img product-img-zoom">
-                                                    <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}"
-                                                        tabindex="0">
-                                                        <img class="default-img"
-                                                            src="{{ asset($product->product_thambnail) }}"
-                                                            alt="" />
-                                                    </a>
-                                                </div>
-                                                <div class="product-action-1">
-                                                    <a aria-label="Quick view" class="action-btn small hover-up"
-                                                        data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
-                                                            class="fi-rs-search"></i></a>
-                                                    <a aria-label="Add To Wishlist" class="action-btn small hover-up"
-                                                        href="shop-wishlist.html" tabindex="0"><i
-                                                            class="fi-rs-heart"></i></a>
-                                                    <a aria-label="Compare" class="action-btn small hover-up"
-                                                        href="shop-compare.html" tabindex="0"><i
-                                                            class="fi-rs-shuffle"></i></a>
-                                                </div>
+                    @if (count($relatedProduct) > 0)
+                        <div class="row mt-60">
+                            <div class="col-12">
+                                <h2 class="section-title style-1 mb-30">Related products</h2>
+                            </div>
+                            <div class="col-12">
+                                <div class="row related-products">
+                                    @foreach ($relatedProduct as $product)
+                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
+                                            <div class="product-cart-wrap hover-up">
+                                                <div class="product-img-action-wrap">
+                                                    <div class="product-img product-img-zoom">
+                                                        <a href="{{ url('product/details/' . $product->id . '/' . $product->product_slug) }}"
+                                                            tabindex="0">
+                                                            <img class="default-img"
+                                                                src="{{ asset($product->product_thambnail) }}"
+                                                                alt="" />
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-action-1">
+                                                        <a aria-label="Quick view" class="action-btn small hover-up"
+                                                            data-bs-toggle="modal" data-bs-target="#quickViewModal"><i
+                                                                class="fi-rs-search"></i></a>
+                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up"
+                                                            href="shop-wishlist.html" tabindex="0"><i
+                                                                class="fi-rs-heart"></i></a>
+                                                        <a aria-label="Compare" class="action-btn small hover-up"
+                                                            href="shop-compare.html" tabindex="0"><i
+                                                                class="fi-rs-shuffle"></i></a>
+                                                    </div>
 
-                                                @php
-                                                    $amount = $product->selling_price - $product->discount_price;
-                                                    $discount = ($amount / $product->selling_price) * 100;
-                                                @endphp
-                                                <div class="product-badges product-badges-position product-badges-mrg">
+                                                    @php
+                                                        $amount = $product->selling_price - $product->discount_price;
+                                                        $discount = ($amount / $product->selling_price) * 100;
+                                                    @endphp
+                                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                                        @if ($product->discount_price == null)
+                                                            <span class="new">New</span>
+                                                        @else
+                                                            <span class="hot"> {{ round($discount) }} %</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="product-content-wrap">
+                                                    <h2><a href="shop-product-right.html"
+                                                            tabindex="0">{{ $product->product_name }}</a></h2>
+                                                    <div class="rating-result" title="90%">
+                                                        <span> </span>
+                                                    </div>
                                                     @if ($product->discount_price == null)
-                                                        <span class="new">New</span>
+                                                        <div class="product-price">
+                                                            <span>${{ $product->selling_price }}</span>
+
+                                                        </div>
                                                     @else
-                                                        <span class="hot"> {{ round($discount) }} %</span>
+                                                        <div class="product-price">
+                                                            <span>${{ $product->discount_price }}</span>
+                                                            <span class="old-price">${{ $product->selling_price }}</span>
+                                                        </div>
                                                     @endif
                                                 </div>
                                             </div>
-                                            <div class="product-content-wrap">
-                                                <h2><a href="shop-product-right.html"
-                                                        tabindex="0">{{ $product->product_name }}</a></h2>
-                                                <div class="rating-result" title="90%">
-                                                    <span> </span>
-                                                </div>
-                                                @if ($product->discount_price == null)
-                                                    <div class="product-price">
-                                                        <span>${{ $product->selling_price }}</span>
-
-                                                    </div>
-                                                @else
-                                                    <div class="product-price">
-                                                        <span>${{ $product->discount_price }}</span>
-                                                        <span class="old-price">${{ $product->selling_price }}</span>
-                                                    </div>
-                                                @endif
-                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 </div>
             </div>

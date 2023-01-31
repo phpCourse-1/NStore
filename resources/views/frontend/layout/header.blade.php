@@ -60,7 +60,7 @@
                                         src="{{ asset('frontendAssets/images/theme/icons/icon-cart.svg') }}" />
                                     <span class="pro-count blue" id="cartQty"></span>
                                 </a>
-                                <a href="shop-cart.html"><span class="lable">Cart</span></a>
+                                <a href="{{ route('mycart') }}"><span class="lable">Cart</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
                                     <div id="miniCart">
 
