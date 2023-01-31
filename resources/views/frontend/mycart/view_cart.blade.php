@@ -62,6 +62,9 @@
                                             <td class="cart_total_label">
                                                 <h6 class="text-muted">Subtotal</h6>
                                             </td>
+                                            @php
+                                                $cartTotal = Cart::total();
+                                            @endphp
                                             <td class="cart_total_amount">
                                                 <h4 class="text-brand text-end">$12.31</h4>
                                             </td>
