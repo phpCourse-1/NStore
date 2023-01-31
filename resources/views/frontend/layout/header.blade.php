@@ -46,7 +46,6 @@
                                     </select>
                                 </form>
                             </div>
-
                             <div class="header-action-icon-2">
                                 <a href="shop-wishlist.html">
                                     <img class="svgInject" alt="Nest"
@@ -107,7 +106,6 @@
                                     <img class="svgInject" alt="Nest"
                                         src="{{ asset('frontendAssets/images/theme/icons/icon-user.svg') }}" />
                                 </a>
-
                                 @auth
                                     <a href="page-account.html"><span class="lable ml-0">Account</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
@@ -151,11 +149,9 @@
             </div>
         </div>
     </div>
-
     @php
         $categories = App\Models\Category::orderBy('category_name', 'ASC')->get();
     @endphp
-
     <div class="header-bottom header-bottom-bg-color sticky-bar">
         <div class="container">
             <div class="header-wrap header-space-between position-relative">
@@ -194,7 +190,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a class="active" href="index.html">Home</a>
+                                    <a class="active" href="{{ route('main') }}">Home</a>
                                 </li>
                                 @php
                                     $categories = App\Models\Category::orderBy('category_name', 'ASC')
@@ -203,8 +199,9 @@
                                 @endphp
                                 @foreach ($categories as $category)
                                     <li>
-                                        <a href="#">{{ $category->category_name }} <i
-                                                class="fi-rs-angle-down"></i></a>
+                                        <a
+                                            href="{{ url('product/category/' . $category->id . '/' . $category->category_slug) }}">{{ $category->category_name }}
+                                            <i class="fi-rs-angle-down"></i></a>
                                         @php
                                             $subcategories = App\Models\SubCategory::where('category_id', $category->id)
                                                 ->orderBy('subcategory_name', 'ASC')
@@ -214,7 +211,7 @@
                                             <ul class="sub-menu">
                                                 @foreach ($subcategories as $subcategory)
                                                     <li><a
-                                                            href="vendors-grid.html">{{ $subcategory->subcategory_name }}</a>
+                                                            href="{{ url('product/subcategory/' . $subcategory->id . '/' . $subcategory->subcategory_slug) }}">{{ $subcategory->subcategory_name }}</a>
                                                     </li>
                                                 @endforeach
                                             </ul>
