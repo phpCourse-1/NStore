@@ -159,5 +159,6 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::get('/cart-increment/{rowId}', 'CartIncrement');
         Route::post('/coupon-apply', 'CouponApply');
         Route::get('/coupon-calculation', 'CouponCalculation');
+        Route::get('/coupon-remove', 'CouponRemove');
     });
 });
