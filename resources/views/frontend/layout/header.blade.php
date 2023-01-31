@@ -55,7 +55,7 @@
                                 <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
+                                <a class="mini-cart-icon" href="{{ route('mycart') }}">
                                     <img alt="Nest"
                                         src="{{ asset('frontendAssets/images/theme/icons/icon-cart.svg') }}" />
                                     <span class="pro-count blue" id="cartQty"></span>
