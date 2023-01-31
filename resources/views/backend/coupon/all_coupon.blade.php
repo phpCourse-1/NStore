@@ -39,12 +39,11 @@
                                         @else
                                             <span class="badge rounded-pill bg-danger">Invalid</span>
                                         @endif
-
                                     </td>
                                     <td>
-                                        <a href="{{ route('edit.banner', $item->id) }}" class="btn btn-info"
+                                        <a href="{{ route('edit.coupon', $item->id) }}" class="btn btn-info"
                                             title="Edit Data"><i class="fa fa-pencil"></i></a>
-                                        <a href="{{ route('delete.banner', $item->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('delete.coupon', $item->id) }}" class="btn btn-danger"
                                             id="delete" title="Delete Data"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
